@@ -1,0 +1,25 @@
+{% extends "doctors_hub/base.html" %}
+{% block content %}
+<h1>Search Results</h1>
+{% for doctor in doctors %}
+<article class="media content-section">
+  <img class="rounded-circle article-img" src="{{ doctor.image.url }}">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#"> Dr. {{ doctor.name }}</a>
+    </div>
+    <div class="doctor-details">
+        <div class="doctor-specialization">
+            <span class="text-muted">Specialization: </span>{{ doctor.specialization }}
+        </div>
+        <div class="doctor-area">
+            <span class="text-muted">Address: </span>{{ doctor.area }}, {{doctor.address}}
+        </div>
+        <div class="doctor-phone">
+            <span class="text-muted">Phone Number: </span>{{ doctor.phone }}
+        </div>
+    </div>
+  </div>
+</article>
+{% endfor %}
+{% endblock %}
